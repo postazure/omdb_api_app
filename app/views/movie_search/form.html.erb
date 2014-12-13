@@ -1,5 +1,5 @@
 <h3>Search by Title</h3>
-<%= form_tag(results_path, method: "get") do %>
+<form action=<%= results_path %> method="get">
   <%= text_field_tag(:movie_title, nil, id:"movie-title-field") %>
-  <%= submit_tag('Search', id:"movie-title-submit") %>
-<% end %>
+  <input type="submit" value="Search" id="movie-title-submit">
+</form>

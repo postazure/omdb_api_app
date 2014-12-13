@@ -24,11 +24,34 @@ feature "MovieSeach" do
     end
   end
 
-  # feature "#results" do
-  #   scenario "display reults" do
-  #     visit root_path
-  #
-  #
-  #   end
-  # end
+  feature "#results" do
+    scenario "display titles as links" do
+      visit root_path
+      fill_in "movie-title-field", with: "Star Wars"
+      click_on "movie-title-submit"
+
+      expect(page).to have_link("Star Wars")
+      expect(page).to have_link("Star Wars: Episode I - The Phantom Menace")
+      expect(page).to have_link("Star Wars: Episode II - Attack of the Clones")
+    end
+    scenario "display years" do
+      visit root_path
+      fill_in "movie-title-field", with: "Star Wars"
+      click_on "movie-title-submit"
+
+      expect(page).to have_link("Star Wars")
+      expect(page).to have_content("1977")
+    end
+  end
+
+  feature "#title" do
+    scenario "navigate to title show page" do
+      visit root_path
+      fill_in "movie-title-field", with: "Star Wars"
+      click_on "movie-title-submit"
+      click_on "Star Wars: Episode II - Attack of the Clones"
+
+      expect(page.current_path).to eq(title_path("tt0121765"))
+    end
+  end
 end

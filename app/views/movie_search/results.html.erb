@@ -1,1 +1,26 @@
-<%= p params %>
+<h3>Search for: <%= params[:movie_title] %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Movie Title
+      </th>
+      <th>
+        Year
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_hash["Search"].each do |movie| %>
+    <tr>
+      <td>
+        <%= link_to movie["Title"], title_path(movie["imdbID"]) %>
+      </td>
+      <td>
+        <%= movie["Year"] %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

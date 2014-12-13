@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'movie_search#form'
 
   get 'movie_search/results' => "movie_search#results", as: :results
+  get 'movie_search/title/:imdbID' => "movie_search#title", as: :title
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

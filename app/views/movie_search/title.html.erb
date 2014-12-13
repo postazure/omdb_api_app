@@ -1,0 +1,10 @@
+<h3>
+  <%= @movie_hash["title"] %>
+</h3>
+
+<% @movie_hash.each do |label, value| %>
+  <p>
+    <strong><%= label %>:</strong>
+    <%= value %>
+  </p>
+<% end %>
